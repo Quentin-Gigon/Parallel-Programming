@@ -1,0 +1,48 @@
+package ethz.ch.pp.mergeSort;
+
+import java.util.Arrays;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.RecursiveAction;
+import java.util.concurrent.RecursiveTask;
+
+import ethz.ch.pp.util.ArrayUtils;
+
+public class MergeSortMulti extends RecursiveTask<int[]> {
+
+	private int[] input;
+
+	public MergeSortMulti(int[] input) {
+		this.input = input;
+	}
+
+	@Override
+	protected int[] compute() {
+		if (input.length <= 2) {
+			return MergeSortSingle.sort(input);
+		} else {
+			int mid = input.length / 2;
+
+			int[] left = Arrays.copyOfRange(input, 0, mid);
+			int[] right = Arrays.copyOfRange(input, mid, input.length);
+
+			MergeSortMulti leftTask = new MergeSortMulti(left);
+			MergeSortMulti rightTask = new MergeSortMulti(right);
+
+			leftTask.fork();
+			rightTask.fork();
+
+			ArrayUtils.merge(leftTask.join(), rightTask.join(), input);
+		}
+		return input;
+
+	}
+
+	private static final long serialVersionUID = 1531647254971804196L;
+
+	// TODO: implement using ForkJoinPool
+	// You should change this class to extend from RecursiveTask or RecursiveAction
+	public static int[] sort(int[] input, int numThreads) {
+		ForkJoinPool fjPool = new ForkJoinPool(numThreads);
+		return fjPool.invoke(new MergeSortMulti(input));
+	}
+}
