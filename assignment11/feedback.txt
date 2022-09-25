@@ -1,0 +1,25 @@
+11.a)   Alright, so this has left me thoroughly confused. Your solution looks correct,
+I compared it line by line to the working master solution (which adds fairness, but
+yours is identical apart from that), and have not found any mistakes. My suspicion was, 
+that you simply get a timeout because the unfair version takes too long, but this 
+doesn't seem to be the case. 
+I investigated several other possible causes, but could still not find the error.
+I have now spent as much time as I can afford on this, and still have not found
+the cause. Your lockedSensor seems to take forever, but I can't tell why.
+
+Since the scope of this exercise is pretty small, it would probably be best to start
+from scratch and implement the lock again. Theoretically it should work, since it
+follows the slides/master solution. 
+
+b) Here the reason your solution doesn't work is simple: You are using if instead
+of while. If a thread fails the compareAndset, it will not retry, and its data
+is lost; we clearly don't want this. 
+
+Regarding your comments:
+These are things I don't have any control over asa TA; but I can forward this to
+the Head-TA who can then tell the Prof. 
+
+In my opinion the exercises could be clearer in what they expect students to do 
+and the course would certainly benefit from having some sort of script. But again,
+this is not something I can change as a TA. See this as an opportunity to pracitce
+your own research skills. Everything you need here is easily available on the internet.

@@ -1,0 +1,20 @@
+Your solution is correct, well done.
+
+About your question:
+This has nothing to do with STM, it won't let you put else because then your
+method is not guaranteed to return (at least from the compilers perspective).
+This is something general in programming, look at this example:
+
+int foo (){
+    if (condition()){
+        //do nothing
+    } else {
+        return 1;
+    }
+    
+Since there is no return in the if-block, but the method specifies int as return
+type, the compiler complains. In fact the compiler even complains if the
+condition() is simply "false". You will learn why exactly this happens during the
+next semester, if you are really curious about it.
+
+I hope this makes sense, otherwise ask me about it via mail.

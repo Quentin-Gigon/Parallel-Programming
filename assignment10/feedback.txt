@@ -1,0 +1,23 @@
+BridgeMonitor:
+This is correct.
+
+BridgeCondition:
+This is correct. However, it would make sense to use different conditions for
+the trucks and the cars, since otherwise we don't gain anything by using the
+conditions. These conditions are meant to give us more control and distinguish
+different kinds of threads waiting on a lock. 
+
+Semaphore:
+Correct.
+
+Barrier:
+Yeah, barriers are tricky. The idea here was for you to implement a very simple
+barrier that doesn't have to be reusable (the backup only happens once here).
+You could see some of these simple versions on the exercise session slides.
+The only tricky thing when trying to make it reusable is the "overtaking" issue,
+meaning threads entering the barrier again while others are still leaving, thus
+"slipping through." 
+Weirldy enough, your code really looks like what is on the lecture slides and I
+can't figure out why it doesn't work. I'll see if I can get another TA's feedback
+on this.
+I'll also put some additional ressources in the mail I'll send out later. 

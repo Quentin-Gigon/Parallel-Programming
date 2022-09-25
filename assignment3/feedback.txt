@@ -1,0 +1,9 @@
+A:  Well done.
+B:  Good job. Stylewise it would be better to make value private.
+C:  No discussion.
+D:  Not sure what you were trying here. Look at the master solution, listen to
+    my explanation today in class and feel free to shoot me an Email if things
+    remain unclear.
+E:  There's no need for the toreturn variable, but this is a minor nitpick. Well done.
+
+Try doing D again somewhen. It's an important exercise with high exam-relevancy. ;)

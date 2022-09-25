@@ -1,0 +1,15 @@
+A:  Good job.
+B:  Well done. You could measure multiple times and take the average to get a
+    more accurate result.
+C:  Nice work.
+D:  There is an issue with the tests that make you fail if you handle the errors
+    the way you did. This is a problem with the tests, not your code. However,
+    there is a small error in the way you partition the array:
+    If numPartitions does not divide length, you simply add 1 to one of the partitions.
+    But the remainder can be larger than one. If you add the remainder instead of 1, 
+    your code works.
+E:  Not finished.
+
+You were pretty close to a working solution. Keep it up! If you have trouble
+understanding the master solution, feel free to ask me about it in the exercise
+session or per mail.
